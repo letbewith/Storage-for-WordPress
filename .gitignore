@@ -1,7 +1,8 @@
+#webStorm
+.idea
 #################
 ## Eclipse
 #################
-
 *.pydevproject
 .project
 .metadata
