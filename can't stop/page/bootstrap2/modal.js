@@ -90,7 +90,7 @@
 
        //返回 event 对象上是否调用了 event.preventDefault()
        // isDefaultPrevented() 阻止默认事件  好像没什么阻止的
-       //
+
         if (!this.isShown || e.isDefaultPrevented()) return
 
         this.isShown = false   //全局的状态值
