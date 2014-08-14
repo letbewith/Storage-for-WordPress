@@ -137,6 +137,7 @@ jQuery.fn = jQuery.prototype = {
 	// 压入jQuery栈的元素，用于生成一个新的jQuery对象
 	// jQuery封装的对象 就是这个吧
 	// issue  todo  merge  方法那里来的
+	// 在合并神马
 	pushStack: function( elems ) {
 		// Build a new jQuery matched element set
 		// 创建一个匹配的对象 如果没有就创空的 jQuery 对象 里面没undifend null 
@@ -204,13 +205,19 @@ jQuery.fn = jQuery.prototype = {
 	sort: arr.sort,
 	splice: arr.splice
 };
+/*
+jQuery  为开发插件提供了两个方法
+		jQuery.fn.extend()  jQuery 对象提供方法。
+		jQuery.extend()为扩展jQuery类本身添加方法。
 
+它自己的方法 也是这样子扩展进来的
+ */
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
 		target = arguments[0] || {},
 		i = 1,
 		length = arguments.length,
-		deep = false;
+		deep = false;//深拷贝
 
 	// Handle a deep copy situation
 	if ( typeof target === "boolean" ) {
