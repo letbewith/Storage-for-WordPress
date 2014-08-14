@@ -103,15 +103,14 @@ jQuery.fn = jQuery.prototype = {
 	constructor: jQuery,
 
 	// Start with an empty selector
+    // 所有的selector 都存这里?
 	selector: "",
-
 	// The default length of a jQuery object is 0
 	length: 0,
-
+    //toArray 怎么调用 slice
 	toArray: function() {
 		return slice.call( this );
 	},
-
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
 	get: function( num ) {
@@ -123,7 +122,6 @@ jQuery.fn = jQuery.prototype = {
 			// Return all the elements in a clean array
 			slice.call( this );
 	},
-
 	// Take an array of elements and push it onto the stack
 	// (returning the new matched element set)
 	pushStack: function( elems ) {
