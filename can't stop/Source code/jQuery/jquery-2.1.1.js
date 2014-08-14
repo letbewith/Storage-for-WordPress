@@ -10,6 +10,16 @@
  * http://jquery.org/license
  *
  * Date: 2014-05-01T17:11Z
+ *  todo 
+ *  pass  跳过
+ *  issue #num 有问题都列出来
+ *
+ *
+ * lake-end
+ *  
+ *
+ *
+ * 
  */
 
 (function( global, factory ) {
@@ -108,11 +118,16 @@ jQuery.fn = jQuery.prototype = {
 	// The default length of a jQuery object is 0
 	length: 0,
     //toArray 怎么调用 slice
+// issue:1 todo
+//slice 切一个新数组出来  但是有什么用呢
+//本来就是个数组 来 toArray  变数组？
+// var slice 是个局部的 全局变量 在这里可以引用到
 	toArray: function() {
 		return slice.call( this );
 	},
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
+	// get 是什么方法    设置为一个干净的[] 什么意思 todo
 	get: function( num ) {
 		return num != null ?
 
@@ -124,9 +139,13 @@ jQuery.fn = jQuery.prototype = {
 	},
 	// Take an array of elements and push it onto the stack
 	// (returning the new matched element set)
+	// 压入jQuery栈的元素，用于生成一个新的jQuery对象
+	// jQuery封装的对象 就是这个吧
+	// issue  todo  merge  方法那里来的
 	pushStack: function( elems ) {
 
 		// Build a new jQuery matched element set
+		// 创建一个匹配的对象 如果没有就创空的 jQuery 对象 里面没undifend null 
 		var ret = jQuery.merge( this.constructor(), elems );
 
 		// Add the old object onto the stack (as a reference)
@@ -140,6 +159,8 @@ jQuery.fn = jQuery.prototype = {
 	// Execute a callback for every element in the matched set.
 	// (You can seed the arguments with an array of args, but this is
 	// only used internally.)
+	// jQuery 下面那里有 each 方法?  todo
+	// issue
 	each: function( callback, args ) {
 		return jQuery.each( this, callback, args );
 	},
