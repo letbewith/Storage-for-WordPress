@@ -14,11 +14,7 @@
  *  pass  跳过
  *  issue #num 有问题都列出来
  *
- *
  * lake-end
- *  
- *
- *
  * 
  */
 
@@ -68,8 +64,6 @@ var hasOwn = class2type.hasOwnProperty;
 
 var support = {};
 
-
-
 var
 	// Use the correct document accordingly with window argument (sandbox)
     // javascript 没这个 sandbox 就是命名空间机制 但是不妨碍js按照这个机制去写
@@ -107,7 +101,9 @@ var
 	};
 //---------------------------------------------------------------------------------------------------
 jQuery.fn = jQuery.prototype = {
+
 	// The current version of jQuery being used
+    // 这里设置了几个全局变量   issue 他们不会互相影响到 ? todo
 	jquery: version, // 做什么?
 
 	constructor: jQuery,
@@ -115,13 +111,14 @@ jQuery.fn = jQuery.prototype = {
 	// Start with an empty selector
     // 所有的selector 都存这里?
 	selector: "",
+
 	// The default length of a jQuery object is 0
 	length: 0,
     //toArray 怎么调用 slice
-// issue:1 todo
-//slice 切一个新数组出来  但是有什么用呢
-//本来就是个数组 来 toArray  变数组？
-// var slice 是个局部的 全局变量 在这里可以引用到
+//  issue:1 todo
+//  slice 切一个新数组出来  但是有什么用呢
+//  本来就是个数组 来 toArray  变数组？
+//  var slice 是个局部的 全局变量 在这里可以引用到
 	toArray: function() {
 		return slice.call( this );
 	},
@@ -130,10 +127,8 @@ jQuery.fn = jQuery.prototype = {
 	// get 是什么方法    设置为一个干净的[] 什么意思 todo
 	get: function( num ) {
 		return num != null ?
-
 			// Return just the one element from the set
 			( num < 0 ? this[ num + this.length ] : this[ num ] ) :
-
 			// Return all the elements in a clean array
 			slice.call( this );
 	},
@@ -143,7 +138,6 @@ jQuery.fn = jQuery.prototype = {
 	// jQuery封装的对象 就是这个吧
 	// issue  todo  merge  方法那里来的
 	pushStack: function( elems ) {
-
 		// Build a new jQuery matched element set
 		// 创建一个匹配的对象 如果没有就创空的 jQuery 对象 里面没undifend null 
 		var ret = jQuery.merge( this.constructor(), elems );
@@ -151,20 +145,25 @@ jQuery.fn = jQuery.prototype = {
 		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
 		ret.context = this.context;
-
 		// Return the newly-formed element set
 		return ret;
 	},
-
 	// Execute a callback for every element in the matched set.
 	// (You can seed the arguments with an array of args, but this is
 	// only used internally.)
-	// jQuery 下面那里有 each 方法?  todo
-	// issue
+	// jQuery 下面那里有 each 方法?  估计在下面吧
+	// issue todo
 	each: function( callback, args ) {
 		return jQuery.each( this, callback, args );
 	},
-
+    /**
+     * issue #2 这里this 调的到pushStack ?
+     *          是可以的 这一部分 都在 jQuery.prototype
+     *          this.pushStack( jQuery.map(this, function( elem, i )
+     *          目测这样子递归  根本停不下来 = =
+     * @param callback
+     * @returns {*}
+     */
 	map: function( callback ) {
 		return this.pushStack( jQuery.map(this, function( elem, i ) {
 			return callback.call( elem, i, elem );
@@ -182,13 +181,19 @@ jQuery.fn = jQuery.prototype = {
 	last: function() {
 		return this.eq( -1 );
 	},
-
+    /** jQuery 对象 都塞到 pushStack
+     *  eq  调用 pushStack  按照index 来取
+     */
 	eq: function( i ) {
 		var len = this.length,
 			j = +i + ( i < 0 ? len : 0 );
 		return this.pushStack( j >= 0 && j < len ? [ this[j] ] : [] );
 	},
-
+    /**
+     * 返回一个破坏操作 之前
+     * prevObject 是什么 todo
+     * @returns {jQuery|*|prevObject}
+     */
 	end: function() {
 		return this.prevObject || this.constructor(null);
 	},
