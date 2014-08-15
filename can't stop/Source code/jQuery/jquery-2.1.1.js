@@ -201,6 +201,7 @@ jQuery.fn = jQuery.prototype = {
 
 	// For internal use only.
 	// Behaves like an Array's method, not like a jQuery method.
+//  内部使用 = =!
 	push: push,
 	sort: arr.sort,
 	splice: arr.splice
@@ -210,7 +211,29 @@ jQuery  为开发插件提供了两个方法
 		jQuery.fn.extend()  jQuery 对象提供方法。
 		jQuery.extend()为扩展jQuery类本身添加方法。
 
-它自己的方法 也是这样子扩展进来的
+        它自己的方法 也是这样子扩展进来的
+举个例子:
+      $.fn.extend({
+        lake:function(){
+            console.info("el psy congroo")
+            return this
+        }
+      })
+    target  arguments[0]
+    {
+     lake:function(){
+         console.info("el psy congroo")
+         return this
+        }
+    }
+
+
+
+
+
+
+
+
  */
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
@@ -220,15 +243,16 @@ jQuery.extend = jQuery.fn.extend = function() {
 		deep = false;//深拷贝
 
 	// Handle a deep copy situation
+    // 深拷贝 arguments[0]=true  target--> arguments[1]
 	if ( typeof target === "boolean" ) {
 		deep = target;
-
 		// skip the boolean and the target
 		target = arguments[ i ] || {};
-		i++;
+		i++;// i 在干什么
 	}
 
 	// Handle case when target is a string or something (possible in deep copy)
+    // 传入的参数居然是坑爹的字符串 233 果断的重置{} 为何不 return 掉
 	if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
 		target = {};
 	}
@@ -238,20 +262,20 @@ jQuery.extend = jQuery.fn.extend = function() {
 		target = this;
 		i--;
 	}
-
 	for ( ; i < length; i++ ) {
 		// Only deal with non-null/undefined values
 		if ( (options = arguments[ i ]) != null ) {
 			// Extend the base object
-			for ( name in options ) {
-				src = target[ name ];
-				copy = options[ name ];
-
+            console.info(options)
+			for ( name in options ) { //被扩展对象
+				src = target[ name ]; //  target[key]
+				copy = options[ name ];// options[key]
 				// Prevent never-ending loop
+				// 比较target 和 copy  不科学!!!
+				// 不是应该比较 src 和 copy吗
 				if ( target === copy ) {
 					continue;
 				}
-
 				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
 					if ( copyIsArray ) {
@@ -261,10 +285,8 @@ jQuery.extend = jQuery.fn.extend = function() {
 					} else {
 						clone = src && jQuery.isPlainObject(src) ? src : {};
 					}
-
 					// Never move original objects, clone them
 					target[ name ] = jQuery.extend( deep, clone, copy );
-
 				// Don't bring in undefined values
 				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
