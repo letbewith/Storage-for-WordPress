@@ -8,14 +8,12 @@
  * Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
  * Released under the MIT license
  * http://jquery.org/license
- *
- * Date: 2014-05-01T17:11Z
- *  todo 
+ * jquery 以前看过 1.7的版本 看到3000+ 就看不明白了
+ * 现在来撸下 2.0 +
+ *  2014-05-01
  *  pass  跳过
  *  issue #num 有问题都列出来
- *
- * lake-end
- * 
+ *  lake-end
  */
 
 (function( global, factory ) {
@@ -207,33 +205,63 @@ jQuery.fn = jQuery.prototype = {
 	splice: arr.splice
 };
 /*
-jQuery  为开发插件提供了两个方法
-		jQuery.fn.extend()  jQuery 对象提供方法。
-		jQuery.extend()为扩展jQuery类本身添加方法。
+    = = 没看明白啊
+                                                 从程序设计层面 来思考
+   jQuery.fn.extend() 到最后还是会去调用 jQuery.extend()方法 好吧错了
+   jQuery.extend = jQuery.fn.extend 直接就是 = 是同一个函数
 
-        它自己的方法 也是这样子扩展进来的
-举个例子:
+    有些方法是通过 jQuery.extend    扩展
+    有些     通过 jQuery.fn.extend 扩展
+
+jQuery  为开发插件提供了两个方法 它自己的方法 也是这样子扩展进来的
+
+		jQuery.fn.extend()  jQuery 对象提供方法。
+						    jQuery.prototype进得扩展，
+						    
+		jQuery.extend()     扩展jQuery类本身添加方法 静态方法
+		                    静态方法是不需要new一个实例再去调用的
+		                    还有合并参数的作用
+
+
+ 从实例 来理解
+ jQuery.extend() 使用方式有三种
+     1.jQuery.extend({...})，参数为一个对象  {...} jquery.key = value
+     2.jQuery.extend({...},{...}...),参数为多个对象 合并{ } 如果后面对象有和前面对象相同的属性，则后面的覆盖前面的
+     3.jQuery.extend(true,{a:{h:22,w:333}},{a:{h:552,s:2532},c:287}),深度cp，递归合并、覆盖、复制的方式。返回结果为{a:{h:552,w:333,s:2532},c:287}
+
+举个例子 : 1
+      lake 添加到了 jQuery.fn 上了  jQuery.fn = jQuery.prototype  那么就是说扔 prototype 上了
       $.fn.extend({
         lake:function(){
             console.info("el psy congroo")
             return this
         }
       })
-    target  arguments[0]
-    {
-     lake:function(){
-         console.info("el psy congroo")
-         return this
+     调用: $(p).lake()   这是怎么让 fn 对 $ 对象使用的  $.fn.lake 只在这里
+                        $.lake is not a function 这是怎么做到的
+                        jQuery.prototype lake 在这里面 为什么jQuery.lake调用不到
+                        不科学啊
+举个例子 :2
+     var lake = {name:"lake"}
+     $.extend(lake, {showName: function( a){ this.name = a } })
+
+     lake = {
+            name: "lake",
+        showName: function( a){ this.name = a } }
+     }
+---------------------------------------------------------------------------
+     lake 等于是添加到了jQuery属性上去了
+     $.extend({
+        lake:function(){
+            console.info("el psy congroo")
+            return this
         }
-    }
+     })
+     调用: $.lake()
 
 
 
-
-
-
-
-
+  第一次调用
  */
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
@@ -241,7 +269,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		i = 1,
 		length = arguments.length,
 		deep = false;//深拷贝
-
+    // console.info(arguments[0])
 	// Handle a deep copy situation
     // 深拷贝 arguments[0]=true  target--> arguments[1]
 	if ( typeof target === "boolean" ) {
@@ -258,30 +286,39 @@ jQuery.extend = jQuery.fn.extend = function() {
 	}
 
 	// extend jQuery itself if only one argument is passed
+	// $.extend $.fn.extend this 指向会不一样?
+    // 如果只有一个参数被传入，则将参数表示的对象的属性和方法复制给  jQuery 或  jQuery  对象
+
 	if ( i === length ) {
-		target = this;
-		i--;
+		target = this;  // target 由arguments[0] 转向了 jQuery
+		i--; // 现在 i 被 - 成 0   为了下面的 for i++
 	}
+
 	for ( ; i < length; i++ ) {
-		// Only deal with non-null/undefined values
-		if ( (options = arguments[ i ]) != null ) {
-			// Extend the base object
-            console.info(options)
-			for ( name in options ) { //被扩展对象
-				src = target[ name ]; //  target[key]
+		// Only deal with non-null/undefined values  如果arguments[0]有值  可以顺下去
+		if ( (options = arguments[ i ]) != null ) { // options  是 arguments[ i ] 的一份 copy
+			// Extend the base object 被扩展对象
+            /** 把 传入参数 expando isReady ... 都循环一遍
+             *
+             */
+			for ( name in options ) { // for in 原始的 arguments[ i ]
+
+				src  = target[ name ]; //  target[key] 这一波都是
+				                      //  这一波都是 undefined jQuery上面根本没有 传入的{expando isReady} 属性
 				copy = options[ name ];// options[key]
+                                      // 这一波{} 的 value
+              console.info(copy)
 				// Prevent never-ending loop
 				// 比较target 和 copy  不科学!!!
 				// 不是应该比较 src 和 copy吗
-				if ( target === copy ) {
-					continue;
-				}
+				if ( target === copy ) continue  //  好吧确实不科学 先放这里 todo
+
+                // 这一波传入的参数{ } deep 是false  程序进不到 if 里面 先不看
 				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
-					if ( copyIsArray ) {
+                    if ( copyIsArray ) {
 						copyIsArray = false;
 						clone = src && jQuery.isArray(src) ? src : [];
-
 					} else {
 						clone = src && jQuery.isPlainObject(src) ? src : {};
 					}
@@ -290,22 +327,27 @@ jQuery.extend = jQuery.fn.extend = function() {
 				// Don't bring in undefined values
 				} else if ( copy !== undefined ) {
 					target[ name ] = copy;
+                    // 看到这里 泥妹 窝终于懂了
 				}
 			}
 		}
 	}
-
 	// Return the modified object
 	return target;
 };
-
+/*
+ * 这里一波传参 又执行了一遍 是为神马啊
+ *                         为神
+ *                         为
+ *                         .
+ * 我还以为这是什么神奇 黑魔法
+ * 不就是把 这些 key value 扔到jQuery属性下面
+ */
 jQuery.extend({
 	// Unique for each copy of jQuery on the page
 	expando: "jQuery" + ( version + Math.random() ).replace( /\D/g, "" ),
-
 	// Assume jQuery is ready without the ready module
 	isReady: true,
-
 	error: function( msg ) {
 		throw new Error( msg );
 	},
