@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fe2e99f-3c7a-4f6b-b35f-abe5e81162d0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/can't stop/Source code/jQuery/jQuery 测试.html" afterPath="$PROJECT_DIR$/can't stop/Source code/jQuery/jQuery 测试.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js" afterPath="$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,11 +29,15 @@
       <file leaf-file-name="jquery-2.1.1.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57575756" vertical-offset="5370" max-vertical-offset="220632">
-              <caret line="343" column="33" selection-start-line="343" selection-start-column="33" selection-end-line="343" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.4848485" vertical-offset="4320" max-vertical-offset="163512">
+              <caret line="665" column="3" selection-start-line="665" selection-start-column="3" selection-end-line="665" selection-end-column="3" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#2792#5603#0" expanded="false" />
+                <element signature="e#7340#9735#0" expanded="false" />
+                <element signature="e#9921#16465#0" expanded="false" />
+                <element signature="e#16777#17083#0" expanded="false" />
+                <element signature="e#17606#75624#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,7 +46,7 @@
       <file leaf-file-name="jQuery 测试.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jQuery 测试.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.172414" vertical-offset="142" max-vertical-offset="744">
+            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="744">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
@@ -287,9 +289,57 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6043" max-vertical-offset="213504">
+          <caret line="659" column="29" selection-start-line="659" selection-start-column="29" selection-end-line="659" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jQuery 测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="744">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="220632">
+          <caret line="343" column="33" selection-start-line="343" selection-start-column="33" selection-end-line="343" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jQuery 测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="744">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="4197" max-vertical-offset="220296">
@@ -297,6 +347,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -316,6 +370,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -335,6 +393,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -354,6 +416,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -375,6 +441,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -396,6 +466,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -417,6 +491,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -428,6 +506,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -439,6 +521,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -450,6 +536,10 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -487,7 +577,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jQuery 测试.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.172414" vertical-offset="142" max-vertical-offset="744">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="744">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
@@ -495,11 +585,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/can't stop/Source code/jQuery/jquery-2.1.1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57575756" vertical-offset="5370" max-vertical-offset="220632">
-          <caret line="343" column="33" selection-start-line="343" selection-start-column="33" selection-end-line="343" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.4848485" vertical-offset="4320" max-vertical-offset="163512">
+          <caret line="665" column="3" selection-start-line="665" selection-start-column="3" selection-end-line="665" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#2792#5603#0" expanded="false" />
+            <element signature="e#7340#9735#0" expanded="false" />
+            <element signature="e#9921#16465#0" expanded="false" />
+            <element signature="e#16777#17083#0" expanded="false" />
+            <element signature="e#17606#75624#0" expanded="false" />
           </folding>
         </state>
       </provider>

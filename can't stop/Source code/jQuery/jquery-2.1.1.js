@@ -633,6 +633,11 @@ jQuery.each("Boolean Number String Function Array Date RegExp Object Error".spli
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
+    /**
+     * 呃这个就扔外面
+     * @param obj
+     * @returns {boolean}
+     */
 function isArraylike( obj ) {
 	var length = obj.length,
 		type = jQuery.type( obj );
@@ -648,16 +653,24 @@ function isArraylike( obj ) {
 	return type === "array" || length === 0 ||
 		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
 }
+
+
 var Sizzle =
-/*!
+/*! 好了 上面最基本的jQuery 框架已经完 下面都是扩充进来的
  * Sizzle CSS Selector Engine v1.10.19
  * http://sizzlejs.com/
+ * javascript CSS选择器引擎 可以独立出来
+ * 2000多行代码 好多正则 = = 占据了 jQuery 四分之一 还多
  *
- * Copyright 2013 jQuery Foundation, Inc. and other contributors
- * Released under the MIT license
- * http://jquery.org/license
- *
- * Date: 2014-04-18
+ * 代码 var Sizzle=()() 匿名函数封装(自调用)
+ * 接口传递给 jQuery
+     jQuery.find = Sizzle;
+     jQuery.expr = Sizzle.selectors;
+     jQuery.expr[":"] = jQuery.expr.pseudos;
+     jQuery.unique = Sizzle.uniqueSort;
+     jQuery.text = Sizzle.getText;
+     jQuery.isXMLDoc = Sizzle.isXML;
+     jQuery.contains = Sizzle.contains;
  */
 (function( window ) {
 
@@ -2684,7 +2697,6 @@ if ( !assert(function( div ) {
 return Sizzle;
 
 })( window );
-
 
 
 jQuery.find = Sizzle;
