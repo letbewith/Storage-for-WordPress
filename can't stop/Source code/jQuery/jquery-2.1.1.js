@@ -98,6 +98,8 @@ var
 		return letter.toUpperCase();
 	};
 //---------------------------------------------------------------------------------------------------
+// todo 诡异啊
+// jQuery.prototype 实例化 jQuery.prototype.name   为什么在 jQuery.name 上面找不到呢?
 jQuery.fn = jQuery.prototype = {
 
 	// The current version of jQuery being used
@@ -207,6 +209,7 @@ jQuery.fn = jQuery.prototype = {
 /*
     = = 没看明白啊
                                                  从程序设计层面 来思考
+   copy 就是
    jQuery.fn.extend() 到最后还是会去调用 jQuery.extend()方法 好吧错了
    jQuery.extend = jQuery.fn.extend 直接就是 = 是同一个函数
 
@@ -249,6 +252,7 @@ jQuery  为开发插件提供了两个方法 它自己的方法 也是这样子�
             name: "lake",
         showName: function( a){ this.name = a } }
      }
+ 已撸 就是把 key 赋值到jQuery 属性上去
 ---------------------------------------------------------------------------
      lake 等于是添加到了jQuery属性上去了
      $.extend({
@@ -258,9 +262,6 @@ jQuery  为开发插件提供了两个方法 它自己的方法 也是这样子�
         }
      })
      调用: $.lake()
-
-
-
   第一次调用
  */
 jQuery.extend = jQuery.fn.extend = function() {
@@ -269,52 +270,56 @@ jQuery.extend = jQuery.fn.extend = function() {
 		i = 1,
 		length = arguments.length,
 		deep = false;//深拷贝
-    // console.info(arguments[0])
+    // console.info(arguments[0])--> lake:function(){ }
 	// Handle a deep copy situation
     // 深拷贝 arguments[0]=true  target--> arguments[1]
-	if ( typeof target === "boolean" ) {
+
+	if ( typeof target === "boolean" ) { // 不会到这来
 		deep = target;
 		// skip the boolean and the target
 		target = arguments[ i ] || {};
-		i++;// i 在干什么
+		i++;// i
 	}
-
 	// Handle case when target is a string or something (possible in deep copy)
     // 传入的参数居然是坑爹的字符串 233 果断的重置{} 为何不 return 掉
 	if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
 		target = {};
 	}
-
 	// extend jQuery itself if only one argument is passed
 	// $.extend $.fn.extend this 指向会不一样?
-    // 如果只有一个参数被传入，则将参数表示的对象的属性和方法复制给  jQuery 或  jQuery  对象
+    // 一个参数被传入，则将参数表示的对象的属性和方法复制给  jQuery 或  jQuery  对象
 
-	if ( i === length ) {
+	if ( i === length ) { //this是指jQuery
 		target = this;  // target 由arguments[0] 转向了 jQuery
 		i--; // 现在 i 被 - 成 0   为了下面的 for i++
 	}
-
+//ok arguments[0]--> lake:function(){ } 的情况下 target --> jQuery this了
 	for ( ; i < length; i++ ) {
-		// Only deal with non-null/undefined values  如果arguments[0]有值  可以顺下去
+		// Only deal with non-null/undefined values  没问题 arguments[0]有值  可以顺下去
 		if ( (options = arguments[ i ]) != null ) { // options  是 arguments[ i ] 的一份 copy
 			// Extend the base object 被扩展对象
             /** 把 传入参数 expando isReady ... 都循环一遍
-             *
+             *  options = lake : function(){ }
+             *  这里只有1层 很好理解 多层也是一样的
              */
 			for ( name in options ) { // for in 原始的 arguments[ i ]
-
+                // src 实际上就是 find jquery.name
 				src  = target[ name ]; //  target[key] 这一波都是
 				                      //  这一波都是 undefined jQuery上面根本没有 传入的{expando isReady} 属性
 				copy = options[ name ];// options[key]
                                       // 这一波{} 的 value
-              console.info(copy)
+            // src undifined copy ---> function(){ }
 				// Prevent never-ending loop
-				// 比较target 和 copy  不科学!!!
-				// 不是应该比较 src 和 copy吗
-				if ( target === copy ) continue  //  好吧确实不科学 先放这里 todo
+				// 比较target 和 copy  不科学!!!  需要加入的 fn name 和 jquery.name 有没有重复
+                // 不是应该比较 src 和 copy吗 判断下
 
+                // 话说根本就不太可能存这种情况吧 target === copy
+                if ( target === copy ) continue  //  好吧确实不科学 先放这里 todo
                 // 这一波传入的参数{ } deep 是false  程序进不到 if 里面 先不看
 				// Recurse if we're merging plain objects or arrays
+      // deep = false 不会走这里的if
+      // 直接走else
+      // target[ name ] = copy; 奇怪了 他这里也是 往 jquery 属性里面 扔 这里把之前的有什么区别？
 				if ( deep && copy && ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) {
                     if ( copyIsArray ) {
 						copyIsArray = false;
@@ -333,7 +338,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 		}
 	}
 	// Return the modified object
-	return target;
+	return target; // return this
 };
 /*
  * 这里一波传参 又执行了一遍 是为神马啊
@@ -342,6 +347,7 @@ jQuery.extend = jQuery.fn.extend = function() {
  *                         .
  * 我还以为这是什么神奇 黑魔法
  * 不就是把 这些 key value 扔到jQuery属性下面
+ * 扩展了一些 工具类的 fn 后面应该会用到的
  */
 jQuery.extend({
 	// Unique for each copy of jQuery on the page
@@ -353,7 +359,6 @@ jQuery.extend({
 	},
 
 	noop: function() {},
-
 	// See test/unit/core.js for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
 	// aren't supported. They return false on IE (#2968).
@@ -366,19 +371,18 @@ jQuery.extend({
 	isWindow: function( obj ) {
 		return obj != null && obj === obj.window;
 	},
-
+    // 判断数字
 	isNumeric: function( obj ) {
 		// parseFloat NaNs numeric-cast false positives (null|true|false|"")
 		// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
 		// subtraction forces infinities to NaN
 		return !jQuery.isArray( obj ) && obj - parseFloat( obj ) >= 0;
 	},
-
 	isPlainObject: function( obj ) {
 		// Not plain objects:
 		// - Any object or value whose internal [[Class]] property is not "[object Object]"
-		// - DOM nodes
-		// - window
+		// - DOM nodes - window
+		// 通过字面量定义的对象和new Object的对象返回true，new Object时传参数的返回false
 		if ( jQuery.type( obj ) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
@@ -392,15 +396,11 @@ jQuery.extend({
 		// |obj| is a plain object, created by {} or constructed with new Object
 		return true;
 	},
-
+    // = =这样写也行
 	isEmptyObject: function( obj ) {
-		var name;
-		for ( name in obj ) {
-			return false;
-		}
+		for (var key in obj ) { return false }
 		return true;
 	},
-
 	type: function( obj ) {
 		if ( obj == null ) {
 			return obj + "";
@@ -444,7 +444,7 @@ jQuery.extend({
 		return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 	},
 
-	// args is for internal usage only
+	// args is for internal usage only   你也用if 嵌套 www
 	each: function( obj, callback, args ) {
 		var value,
 			i = 0,
@@ -522,21 +522,25 @@ jQuery.extend({
 	inArray: function( elem, arr, i ) {
 		return arr == null ? -1 : indexOf.call( arr, elem, i );
 	},
-
+    /**
+     * 合并数组  first second
+     * @returns {*}
+     */
 	merge: function( first, second ) {
 		var len = +second.length,
-			j = 0,
 			i = first.length;
 
-		for ( ; j < len; j++ ) {
+		for (var j = 0; j < len; j++ ) {
 			first[ i++ ] = second[ j ];
 		}
-
 		first.length = i;
 
 		return first;
 	},
-
+    /**
+     * 方法用于数组元素过滤筛选
+     * todo 具体没看明白 先放着
+     */
 	grep: function( elems, callback, invert ) {
 		var callbackInverse,
 			matches = [],
@@ -589,11 +593,11 @@ jQuery.extend({
 		return concat.apply( [], ret );
 	},
 
-	// A global GUID counter for objects
+	// A global GUID counter for objects 这是什么标识符
 	guid: 1,
 
 	// Bind a function to a context, optionally partially applying any
-	// arguments.
+	// arguments. 使用 arguments 的this
 	proxy: function( fn, context ) {
 		var tmp, args, proxy;
 
@@ -602,13 +606,11 @@ jQuery.extend({
 			context = fn;
 			fn = tmp;
 		}
-
 		// Quick check to determine if target is callable, in the spec
 		// this throws a TypeError, but we will just return undefined.
 		if ( !jQuery.isFunction( fn ) ) {
 			return undefined;
 		}
-
 		// Simulated bind
 		args = slice.call( arguments, 2 );
 		proxy = function() {
@@ -648,6 +650,14 @@ function isArraylike( obj ) {
 	return type === "array" || length === 0 ||
 		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
 }
+
+/**
+ * 参考 http://blog.csdn.net/pengju_guo/article/details/7276084
+ *      http://www.cnblogs.com/mw666666/archive/2013/04/15/3023169.html
+ * jQuery 选择器 支持  种匹配模式
+    1 $("#name")
+ *
+ */
 var Sizzle =
 /*!
  * Sizzle CSS Selector Engine v1.10.19
@@ -663,11 +673,11 @@ var Sizzle =
 
 var i,
 	support,
-	Expr,
-	getText,
-	isXML,
+	Expr,    //Sizzle.selectors的快捷方式
+	getText, //获取文本函数
+	isXML,   //是否为xml
 	tokenize,
-	compile,
+	compile, //编译函数
 	select,
 	outermostContext,
 	sortInput,
@@ -697,7 +707,6 @@ var i,
 		}
 		return 0;
 	},
-
 	// General-purpose constants
 	strundefined = typeof undefined,
 	MAX_NEGATIVE = 1 << 31,
@@ -950,6 +959,7 @@ function Sizzle( selector, context, results, seed ) {
  * @returns {Function(string, Object)} Returns the Object data after storing it on itself with
  *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
+ *  返回的是{}
  */
 function createCache() {
 	var keys = [];

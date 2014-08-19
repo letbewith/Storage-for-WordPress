@@ -11,10 +11,16 @@
     </style>
 <script type="text/javascript">
 
-/*    var lake = {name:"lake"}
-    $.extend(lake, {setName: function( a){ this.name = a } })
+var jQuery = function(){}
+jQuery.fn = jQuery.prototype={
+    lake:function(nimei){
+        console.info('我是prototype 上面的方法  -'+ nimei)
+    }
+}
 
-    console.info(lake)*/
+    var a = new jQuery
+    a.lake("被调用啦")
+
 
 
 </script>
