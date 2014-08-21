@@ -635,6 +635,11 @@ jQuery.each("Boolean Number String Function Array Date RegExp Object Error".spli
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
+    /**
+     * 呃这个就扔外面 为什么不收到属性下面去
+     * @param obj
+     * @returns {boolean}
+     */
 function isArraylike( obj ) {
 	var length = obj.length,
 		type = jQuery.type( obj );
@@ -659,15 +664,21 @@ function isArraylike( obj ) {
  *
  */
 var Sizzle =
-/*!
+/*! 好了 上面最基本的jQuery 框架已经完 下面都是扩充进来的
  * Sizzle CSS Selector Engine v1.10.19
  * http://sizzlejs.com/
+ * javascript CSS选择器引擎 可以独立出来
+ * 2000多行代码 好多正则 = = 占据了 jQuery 四分之一 还多
  *
- * Copyright 2013 jQuery Foundation, Inc. and other contributors
- * Released under the MIT license
- * http://jquery.org/license
- *
- * Date: 2014-04-18
+ * 代码 var Sizzle=()() 匿名函数封装(自调用)
+ * 接口传递给 jQuery
+     jQuery.find = Sizzle;
+     jQuery.expr = Sizzle.selectors;
+     jQuery.expr[":"] = jQuery.expr.pseudos;
+     jQuery.unique = Sizzle.uniqueSort;
+     jQuery.text = Sizzle.getText;
+     jQuery.isXMLDoc = Sizzle.isXML;
+     jQuery.contains = Sizzle.contains;
  */
 (function( window ) {
 
@@ -703,16 +714,18 @@ var i,
 	compilerCache = createCache(),
 	sortOrder = function( a, b ) {
 		if ( a === b ) {
-			hasDuplicate = true;
+			hasDuplicate = true; // 重复
 		}
 		return 0;
 	},
 	// General-purpose constants
-	strundefined = typeof undefined,
+	strundefined = typeof undefined,// un
 	MAX_NEGATIVE = 1 << 31,
 
-	// Instance methods
-	hasOwn = ({}).hasOwnProperty,
+	// Instance methods 实例化方法 上面不是与吗 = =
+  //http://m18701641797.blog.163.com/blog/static/216184008201371310473132/
+  // 这里备注下 做个笔记
+	hasOwn = ({}).hasOwnProperty, // 找不到原型上的fn
 	arr = [],
 	pop = arr.pop,
 	push_native = arr.push,
@@ -2695,7 +2708,6 @@ if ( !assert(function( div ) {
 return Sizzle;
 
 })( window );
-
 
 
 jQuery.find = Sizzle;
