@@ -15,28 +15,39 @@ var a=[1,2,3,4]
 var b={
     nimei:12
 }
-function lake(){
-    
-}
+var c = new String("lake")
 
-console.info(typeof a)
-console.info(typeof b)
-console.info(typeof lake)
+
+
+
+var result = a instanceof Array; //a instanceof []; [] 不行  [] != [] ; [] != Array
+
+var ob = b instanceof Object;  //b instanceof Array;  false
+
+
+console.info( result  )
+console.info( ob  )
+
 </script>
 </head>
 <body>
-在 JavaScript 中，判断一个变量的类型尝尝会用 都是在 typeof 来判断
-还行 都能测出来就是了
 
-但是 测 引用类型的 就有问题啦 
-[] {} 都是  object
+JavaScript高级程序设计:
+大家都知道Object是所有对象的基类,所以在alert(array instanceof Object) 返回的结果同样也是true,
 
-JavaScript中instanceof运算符会返回一个 Boolean 值，指出对象是否是特定类的一个实例
+typeof一般是检测的是基本数据类型,instanceof主要检测的是引用类型!
+
+1.typeof是什么?
+typeof 是一个操作符,主要的目的是检测一个变量是不是基本数据类型的变量,
+       同时也可以说是确定一个变量是字符串,数值,布尔值,还是undefined 的最佳工具。
+
+终而言之: 不测object 类型
+
+2.instanceof 主要 检测 引用类型
+            {} Array RegExp!
 
 
 result = variable instanceof constructor
-
-
 
 
 
