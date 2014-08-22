@@ -637,8 +637,6 @@ jQuery.each("Boolean Number String Function Array Date RegExp Object Error".spli
 
     /**
      * 呃这个就扔外面 为什么不收到属性下面去
-     * @param obj
-     * @returns {boolean}
      */
 function isArraylike( obj ) {
 	var length = obj.length,
@@ -732,7 +730,7 @@ var i,
 	push = arr.push,
 	slice = arr.slice,
 	// Use a stripped-down indexOf if we can't use a native one
-    /* 只是[] 测位置 实际上就是这个
+    /* 只是[] 测位置 实际上就是↓
      *  if(!array.prototype.indexOf){
      *       fn
      *  }
@@ -815,6 +813,7 @@ var i,
 	rescape = /'|\\/g,
 
 	// CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
+    // css转义，配合funescape使用 如：string.replace(runescape, funescape);
 	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
 	funescape = function( _, escaped, escapedWhitespace ) {
 		var high = "0x" + escaped - 0x10000;
@@ -831,6 +830,7 @@ var i,
 	};
 
 // Optimize for push.apply( _, NodeList )
+//把NodeList转换为数组，因为数组比集合效率高
 try {
 	push.apply(
 		(arr = slice.call( preferredDoc.childNodes )),
