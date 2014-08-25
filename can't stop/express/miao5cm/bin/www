@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-//var debug = require('debug')('miao5cm.org');
-var debug = require('debug')('nodejs');
+var debug = require('debug')('miao5cm');
 var app = require('../app');
 
 app.set('port', process.env.PORT || 3000);
