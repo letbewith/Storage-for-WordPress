@@ -1,8 +1,9 @@
-我们要搭建的博客具有简单的允许多人注册、登录、发表文章
-
+我要搭建的博客具有简单的允许多人注册、登录、发表文章
 
 http://miao5cm.org/archives/2479
 
 http://blog.csdn.net/llittlepig/article/details/38233157
 http://blog.csdn.net/sadoshi/article/details/28447389
 http://my.oschina.net/gejiawen0913/blog/136273#OSC_h2_10
+
+http://blog.segmentfault.com/6174/1190000000478457

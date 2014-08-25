@@ -21,8 +21,9 @@
      <%- code %>：显示原始 HTML 内容
  *
  */
-var express = require('express');
-var path = require('path');
+var express = require('express'),
+    path = require('path');
+
 /*
 *  默认的favicon.ico 就是 页面上的图标
 *  自定义favicon.ico图标
@@ -36,6 +37,12 @@ var bodyParser = require('body-parser');
 
 var routes       = require('./routes/index'),
     users        = require('./routes/users');
+
+var mongo = require('mongodb'),
+    monk  = require('monk');
+var db = monk('localhost:27017/nodetest1');
+// 使用数据库 name   还没建立
+
 
 var app = express();
 
@@ -62,6 +69,12 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 });
+//将数据库和router相连
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+// todo http://xuyuan923.github.io/2014/08/05/node-mongodb-tutorial/
 
 /// error handlers
 
