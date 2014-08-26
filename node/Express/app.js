@@ -38,10 +38,11 @@ var bodyParser = require('body-parser');
 var routes       = require('./routes/index'),
     users        = require('./routes/users');
 
+
 var mongo = require('mongodb'),
     monk  = require('monk');
-var db = monk('localhost:27017/nodetest1');
-// 使用数据库 name   还没建立
+//var db = monk('localhost:27017/expressCollection');
+var db = monk('localhost:27017/lake'); // use 我刚刚建立的 数据库
 
 
 var app = express();
@@ -58,17 +59,20 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+    //var err = new Error('Not Found');  为什么要抛粗一个错误
+   // err.status = 404;
+    req.db = db;
+    next();
+});
 
 // 路由设置
 app.use('/', routes);
 app.use('/users', users);
 
 /// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
+// 坑 没有 赋值
+
 //将数据库和router相连
 app.use(function(req,res,next){
     req.db = db;

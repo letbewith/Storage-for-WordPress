@@ -1,0 +1,1 @@
+d:\MongoDB\mongod.exe -dbpath "D:\Github-lake\Storage-for-WordPress\node\node-mongodb-demo-master\data"

@@ -3,9 +3,33 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET home page.
+*  use mongodb expressCollection
+* */
 router.get('/', function(req, res) {
-  res.render('index', { title: '主页' });
+    res.render('index', { title: '主页' });
+});
+
+// 测试连接  数据库
+router.get('/lake', function(req, res) {
+    var db = req.db;
+    var collection = db.get('lake');
+
+    console.log("模板已加载")
+
+    // 这里么的东西居然是个数组
+    collection.find({},{},function(e,docs){
+
+        var wo={};
+        for(var i=0;i<docs.length;i++){
+            wo[docs[i]["_id"]]=docs[i];
+        }
+        res.render('testCollection', {
+            "title" : wo
+        });
+        console.log(wo)
+    });
+   // res.render('testCollection', { title: '主页' });
 });
 
 
