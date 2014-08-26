@@ -2,4 +2,5 @@ http://www.emoji-cheat-sheet.com/
 http://api.hitokoto.us/rand
 
 :sunny:
+http://www.douban.com/note/314078324/
 
