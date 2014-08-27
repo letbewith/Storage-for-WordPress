@@ -6,3 +6,11 @@ http://miao5cm.org/archives/2479
 http://blog.csdn.net/llittlepig/article/details/38233157
 http://blog.csdn.net/sadoshi/article/details/28447389
 http://my.oschina.net/gejiawen0913/blog/136273#OSC_h2_10
+
+
+node 入门
+7天学会node http://nqdeng.github.io/7-days-nodejs/
+
+weiki https://github.com/cnodejs/nodeclub/wiki
+http://www.nodejs.org/
+http://javascript.ruanyifeng.com/nodejs/basic.html
