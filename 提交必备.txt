@@ -1,5 +1,26 @@
 http://www.emoji-cheat-sheet.com/
 http://api.hitokoto.us/rand
 
-:sunny:
+
+:snowflake:
+:snowman:
+:zap:
+:cyclone:
+:foggy:
+:ocean:
+:cat:
+:dog:
+:mouse:
+:hamster:
+:rabbit:
+
+:frog:
+:tiger:
+:koala:
+:bear:
+:pig:
+:pig_nose:
+:cow:
+:boar:
+:monkey_face:
 
