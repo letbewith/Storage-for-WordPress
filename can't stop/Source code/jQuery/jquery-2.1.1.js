@@ -98,7 +98,7 @@ var
 		return letter.toUpperCase();
 	};
 //---------------------------------------------------------------------------------------------------
-// todo 诡异啊
+
 // jQuery.prototype 实例化 jQuery.prototype.name   为什么在 jQuery.name 上面找不到呢?
 jQuery.fn = jQuery.prototype = {
 
@@ -656,7 +656,7 @@ function isArraylike( obj ) {
 
 /**
  * 参考 http://blog.csdn.net/pengju_guo/article/details/7276084
- *      http://www.cnblogs.com/mw666666/archive/2013/04/15/3023169.html
+ *     http://www.cnblogs.com/mw666666/archive/2013/04/15/3023169.html
  * jQuery 选择器 支持  种匹配模式
     1 $("#name")
  *
@@ -666,8 +666,7 @@ var Sizzle =
  * Sizzle CSS Selector Engine v1.10.19
  * http://sizzlejs.com/
  * javascript CSS选择器引擎 可以独立出来
- * 2000多行代码 好多正则 = = 占据了 jQuery 四分之一 还多
- *
+ * 2000多行代码 好多正则 = = 占据了 jQuery 四分之一
  * 代码 var Sizzle=()() 匿名函数封装(自调用)
  * 接口传递给 jQuery
      jQuery.find = Sizzle;
@@ -722,7 +721,7 @@ var i,
 
 	// Instance methods 实例化方法 上面不是与吗 = =
   //http://m18701641797.blog.163.com/blog/static/216184008201371310473132/
-  // 这里备注下 做个笔记
+
 	hasOwn = ({}).hasOwnProperty, // 找不到原型上的fn
 	arr = [],
 	pop = arr.pop,
@@ -784,7 +783,11 @@ var i,
 
 	rpseudo = new RegExp( pseudos ),
 	ridentifier = new RegExp( "^" + identifier + "$" ),
-
+    /**
+     *  匹配规则
+     *  $('#a p')
+     *  先p 在id  反着匹配的 不用合并结果 提高效率
+     */
 	matchExpr = {
 		"ID": new RegExp( "^#(" + characterEncoding + ")" ),
 		"CLASS": new RegExp( "^\\.(" + characterEncoding + ")" ),
@@ -858,7 +861,11 @@ try {
 		}
 	};
 }
-
+/*
+*  sizzle主函数
+*  selector css选择器, context上下文，results结果集，seed筛选集
+*  哪里来调用? todo
+*/
 function Sizzle( selector, context, results, seed ) {
 	var match, elem, m, nodeType,
 		// QSA vars
@@ -867,7 +874,6 @@ function Sizzle( selector, context, results, seed ) {
 	if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
 		setDocument( context );
 	}
-
 	context = context || document;
 	results = results || [];
 
@@ -974,6 +980,9 @@ function Sizzle( selector, context, results, seed ) {
  *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
  *  返回的是{}
+ *  创建缓存函数   缓存大小默认为50,可以自己设置    怎么设置?
+ *  这里利用了闭包  私有变量、变量一直保存在内存中
+ *
  */
 function createCache() {
 	var keys = [];
@@ -989,7 +998,7 @@ function createCache() {
 	return cache;
 }
 
-/**
+/* 标记 fn 提供 sizzle 特殊用途? 扩展一个属性
  * Mark a function for special use by Sizzle
  * @param {Function} fn The function to mark
  */
