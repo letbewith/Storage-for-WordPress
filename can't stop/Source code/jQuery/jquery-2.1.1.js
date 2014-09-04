@@ -658,10 +658,9 @@ function isArraylike( obj ) {
  * 参考 http://blog.csdn.net/pengju_guo/article/details/7276084
  *     http://www.cnblogs.com/mw666666/archive/2013/04/15/3023169.html
  * jQuery 选择器 支持  种匹配模式
-    1 $("#name")
+   $("#name")
  *
  */
-var Sizzle =
 /*! 好了 上面最基本的jQuery 框架已经完 下面都是扩充进来的
  * Sizzle CSS Selector Engine v1.10.19
  * http://sizzlejs.com/
@@ -669,14 +668,15 @@ var Sizzle =
  * 2000多行代码 好多正则 = = 占据了 jQuery 四分之一
  * 代码 var Sizzle=()() 匿名函数封装(自调用)
  * 接口传递给 jQuery
-     jQuery.find = Sizzle;
-     jQuery.expr = Sizzle.selectors;
-     jQuery.expr[":"] = jQuery.expr.pseudos;
-     jQuery.unique = Sizzle.uniqueSort;
-     jQuery.text = Sizzle.getText;
-     jQuery.isXMLDoc = Sizzle.isXML;
-     jQuery.contains = Sizzle.contains;
+ jQuery.find = Sizzle;
+ jQuery.expr = Sizzle.selectors;
+ jQuery.expr[":"] = jQuery.expr.pseudos;
+ jQuery.unique = Sizzle.uniqueSort;
+ jQuery.text = Sizzle.getText;
+ jQuery.isXMLDoc = Sizzle.isXML;
+ jQuery.contains = Sizzle.contains;
  */
+var Sizzle =
 (function( window ) {
 
 var i,
@@ -2718,12 +2718,14 @@ return Sizzle;
 
 })( window );
 
-
+/*
+*    怎么扩展进来的?
+* */
 jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
 jQuery.expr[":"] = jQuery.expr.pseudos;
 jQuery.unique = Sizzle.uniqueSort;
-jQuery.text = Sizzle.getText;
+jQuery.text   = Sizzle.getText;
 jQuery.isXMLDoc = Sizzle.isXML;
 jQuery.contains = Sizzle.contains;
 
