@@ -2,7 +2,7 @@ http://www.emoji-cheat-sheet.com/
 http://api.hitokoto.us/rand
 
 
-:snowflake:
+
 :snowman:
 :zap:
 :cyclone:
