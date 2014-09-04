@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+
+    <meta charset="UTF-8">
+</head>
+<body ng-controller='TextController'>
+
+<p>『 {{ messages.someText }} 』 </p>
+
+
+<script>
+
+    var myAppModule = angular.module('myApp',[]);
+
+        myAppModule.controller('TextController',function($scope){
+            var messages={};
+            messages.someText = 'no zuo no die why you try';
+            $scope.messages = messages;
+        })
+
+
+
+
+
+</script>
+</body>
+</html>

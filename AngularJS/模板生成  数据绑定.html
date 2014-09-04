@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <script src="controllers.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body ng-controller='CartController'>
+
+<h1>Your Shopping Cart</h1>
+<div ng-repeat='item in items'>
+    <span>{{item.title}}</span>
+    <input ng-model='item.quantity'>
+    <span>{{item.price | currency}}</span>
+    <span>{{item.price * item.quantity | currency}}</span>
+    <button ng-click="remove($index)">Remove</button>
+</div>
+
+<script>
+
+/*
+*  $scope
+*         不单是 存下 '字符串'
+*         塞 fn
+* */
+
+
+    function CartController($scope) {
+        $scope.items = [
+            {title: 'Paint pots', quantity: 8, price: 3.95},
+            {title: 'Polka dots', quantity: 17, price: 12.95},
+            {title: 'Pebbles', quantity: 5, price: 6.95}
+        ];
+        /**
+         * 这里不是移除 dom
+         * 直接 移除 data
+         * dom 里面相对应的 也移除了
+         * @param index
+         */
+        $scope.remove = function(index) {
+
+            $scope.items.splice(index, 1);
+        };
+    }
+</script>
+
+
+</body>
+</html>

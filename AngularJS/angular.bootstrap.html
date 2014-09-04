@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div ng-controller="WelcomeController">
+    {{greeting}}
+</div>
+
+
+
+
+<script>
+
+    var app = angular.module('demo', [])
+            .controller('WelcomeController', function($scope) {
+                $scope.greeting = 'Welcome!';
+            });
+    angular.bootstrap(document, ['demo']);
+
+
+
+
+</script>
+</body>
+</html>
