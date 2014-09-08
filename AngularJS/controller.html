@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app='myApp'>  
+<!-- 指定module name 
+     如果不指定呢?
+ 
+
+-->
+
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body ng-controller='TextController'>
+
+<p>{{someText.message}}</p>
+
+
+
+
+<script>
+  var myAppModule = angular.module('myApp', []);
+
+
+/* 一个控制 把抽象粗来的 罗辑 放这里
+   
+
+   */
+  myAppModule.controller('TextController',
+      function($scope) {
+        var someText = {};
+        someText.message = 'You have started your journey.';
+        $scope.someText = someText;
+
+
+      });
+
+</script>
+</body>
+</html>

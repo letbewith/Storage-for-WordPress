@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<style type="text/css">
+.selected {
+  background-color: lightgreen;
+}
+</style>
+<body>
+
+
+
+<div ng-controller="ParentController">
+  <div>
+    Ship staff: {{firstName}} {{lastName}} and {{crewmen}} crewmen.
+  </div>
+  <div ng-controller="ChildController">
+    Ship staff: {{firstName}} {{lastName}} and {{crewmen}} crewmen.
+  </div>
+</div>
+<script>
+    function ParentController($scope) {
+      $scope.firstName = '我是第一个';
+      $scope.lastName = 'fn';
+      $scope.crewmen = 30;
+    }
+
+    function ChildController($scope) {
+      $scope.lastName = 'Columbus';
+      $scope.crewmen = $scope.crewmen + 56;
+    }
+
+   
+
+
+
+</script>
+</body>
+</html>

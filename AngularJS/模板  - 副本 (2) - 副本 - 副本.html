@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<form ng-controller="StartUpController">
+  Starting: <input ng-model="funding.startingEstimate">
+  Recommendation: {{funding.needed}}
+</form>
+<script>
+  function StartUpController($scope) {
+    $scope.funding = { startingEstimate: 0 };
+
+    computeNeeded = function() {
+      $scope.funding.needed = $scope.funding.startingEstimate * 10;
+    };
+
+    $scope.$watch('funding.startingEstimate', computeNeeded);
+  }
+</script>
+</body>
+</html>
