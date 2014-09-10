@@ -1,15 +1,19 @@
-﻿http://www.emoji-cheat-sheet.com/
+http://www.emoji-cheat-sheet.com/
 http://api.hitokoto.us/rand
 
 
 http://www.cnblogs.com/aaronjs/archive/2011/09/06/2168336.html
 别人恋爱不成功，你连暗恋都不成功！
+:snowflake:
+:snowman:
 
 既不回头，何必不忘；既然无缘，何须誓言；今日种种，似水无痕；明夕何夕，君已陌路。:foggy:
 :snowflake:
 :snowman:
 :zap:
 :cyclone:
+:foggy:
+:ocean:
 
 
 :cat:
