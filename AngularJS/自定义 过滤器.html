@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="Demo">
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+http://www.cnblogs.com/lvdabao/p/3475426.html
+<p>示例数据: {{ a|map }}</p>
+
+<script>
+
+
+
+    var app = angular.module('Demo', [], angular.noop);
+    app.filter('map', function(){
+        var filter = function(input){
+            return input + '...';
+        };
+        return filter;
+    });
+
+
+</script>
+</body>
+</html>

@@ -4,8 +4,8 @@ http://api.hitokoto.us/rand
 
 http://www.cnblogs.com/aaronjs/archive/2011/09/06/2168336.html
 别人恋爱不成功，你连暗恋都不成功！
-:snowflake:
-:snowman:
+
+
 :zap:
 :cyclone:
 :foggy:
