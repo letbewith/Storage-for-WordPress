@@ -657,6 +657,7 @@ function isArraylike( obj ) {
 /**
  * 参考 http://blog.csdn.net/pengju_guo/article/details/7276084
  *     http://www.cnblogs.com/mw666666/archive/2013/04/15/3023169.html
+ *     http://blog.csdn.net/andyliulin/article/details/13162417
  * jQuery 选择器 支持  种匹配模式
    $("#name")
  *
@@ -787,7 +788,22 @@ var i,
      *  匹配规则
      *  $('#a p')
      *  先p 在id  反着匹配的 不用合并结果 提高效率
-     */
+     *  jQuery实现与 CSS 基本接口 一致
+     *
+     *    除去querySelector,querySelectorAll HTML文档一共有这么四个API：
+     *    getElementById，上下文只能是HTML文档。
+     *    getElementsByName，上下文只能是HTML文档。
+     *    getElementsByTagName，上下文可以是HTML文档，XML文档及元素节点。
+     *    getElementsByClassName，上下文可以是HTML文档及元素节点。IE8还没有支持。
+     *
+     *   所以要兼容的话sizzle最终只会有三种完全靠谱的可用
+
+         Expr.find = {
+          'ID'    : context.getElementById,
+          'CLASS' : context.getElementsByClassName,
+          'TAG'   : context.getElementsByTagName
+        }
+*/
 	matchExpr = {
 		"ID": new RegExp( "^#(" + characterEncoding + ")" ),
 		"CLASS": new RegExp( "^\\.(" + characterEncoding + ")" ),
@@ -844,12 +860,10 @@ try {
 	arr[ preferredDoc.childNodes.length ].nodeType;
 } catch ( e ) {
 	push = { apply: arr.length ?
-
 		// Leverage slice if possible
 		function( target, els ) {
 			push_native.apply( target, slice.call(els) );
 		} :
-
 		// Support: IE<9
 		// Otherwise append directly
 		function( target, els ) {
@@ -864,7 +878,7 @@ try {
 /*
 *  sizzle主函数
 *  selector css选择器, context上下文，results结果集，seed筛选集
-*  哪里来调用? todo
+*  哪里来调用? todo pass
 */
 function Sizzle( selector, context, results, seed ) {
 	var match, elem, m, nodeType,
@@ -2719,7 +2733,7 @@ return Sizzle;
 })( window );
 
 /*
-*    怎么扩展进来的?
+*    Sizzle 怎么扩展 jQuery
 * */
 jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
@@ -2783,6 +2797,8 @@ jQuery.filter = function( expr, elems, not ) {
 		}));
 };
 
+
+// 扩展find 方法 上面不是已经赋值了么?
 jQuery.fn.extend({
 	find: function( selector ) {
 		var i,
@@ -3069,7 +3085,7 @@ function sibling( cur, dir ) {
 	while ( (cur = cur[dir]) && cur.nodeType !== 1 ) {}
 	return cur;
 }
-
+// 节点选择
 jQuery.each({
 	parent: function( elem ) {
 		var parent = elem.parentNode;
@@ -3150,7 +3166,6 @@ function createOptions( options ) {
 	});
 	return object;
 }
-
 /*
  * Create a callback list using the following parameters:
  *
@@ -3575,6 +3590,7 @@ jQuery.ready.promise();
 
 // Multifunctional method to get and set values of a collection
 // The value/s can optionally be executed if it's a function
+// access 这是什么方法
 var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 	var i = 0,
 		len = elems.length,
@@ -3629,6 +3645,7 @@ var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGe
 
 /**
  * Determines whether an object can have data
+ * 这些东西 都没用过
  */
 jQuery.acceptData = function( owner ) {
 	// Accepts only:
@@ -3772,7 +3789,6 @@ Data.prototype = {
 
 		if ( key === undefined ) {
 			this.cache[ unlock ] = {};
-
 		} else {
 			// Support array or space separated string of keys
 			if ( jQuery.isArray( key ) ) {
@@ -3862,7 +3878,8 @@ function dataAttr( elem, key, data ) {
 	}
 	return data;
 }
-
+// todo
+// 检测是否拥有值?
 jQuery.extend({
 	hasData: function( elem ) {
 		return data_user.hasData( elem ) || data_priv.hasData( elem );
@@ -3887,6 +3904,7 @@ jQuery.extend({
 	}
 });
 
+    // fn 没重复?
 jQuery.fn.extend({
 	data: function( key, value ) {
 		var i, name, data,
@@ -4135,7 +4153,9 @@ var isHidden = function( elem, el ) {
 
 var rcheckableType = (/^(?:checkbox|radio)$/i);
 
-
+    /**
+     *  这下面 是css 相关啦
+     */
 
 (function() {
 	var fragment = document.createDocumentFragment(),

@@ -6,8 +6,11 @@
 
 	mp3 空间来引用 速度不行
 	img 目录分类
-jQuery   正在撸
+jQuery √<br>
+bootstrap
 backbone 
+_js
+框架
 angular 
 express
 git 

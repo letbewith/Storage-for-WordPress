@@ -1,57 +1,31 @@
 <!doctype html>
-<html  ng-app="app" >
+<html ng-app="utils">
 <head>
     <script src="angular-1.0.1.min.js"></script>
     <meta charset="UTF-8">
 </head>
-<body>
+<body ng-controller="lake">
 
-<div ng-controller="test">
-num:<input ng-model="num" />
-<br/>
-{{num | number}}
-<br/>
-{{num | number:2}}
-<br/>
-first name:<input ng-model="person.first"/>
-<br/>
-last name:<input ng-model="person.last"/>
-<br/>
-name: {{person | fullname}}
-    <br/>
-name: {{person | fullname:"- -"}}
-       <br/>
-name: {{person | fullname:" " | uppercase }}
-</div>​
+<div>{{ amount | filter1}}</div>  
 
 <script>
-function test($scope) {
+
+var utils = angular.module("no",[]);
 
 
 
-}
+   
+utils.filter('filter1',function(){
+    return function(item){
+        return item + '!';
+    }
+}); 
 
-angular.module("app", []).controller("test", test).
 
-filter("fullname", function() {
 
-    var filterfun = function(person, sep) {
 
-        sep = sep || " ";
 
-        person = person || {};
 
-        person.first = person.first || "";
-
-        person.last = person.last || "";
-
-        return person.first + sep + person.last;
-
-    };
-
-    return filterfun;
-
-});​
 </script>
 </body>
 </html>
