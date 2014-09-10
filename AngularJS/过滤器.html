@@ -1,0 +1,57 @@
+<!doctype html>
+<html  ng-app="app" >
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div ng-controller="test">
+num:<input ng-model="num" />
+<br/>
+{{num | number}}
+<br/>
+{{num | number:2}}
+<br/>
+first name:<input ng-model="person.first"/>
+<br/>
+last name:<input ng-model="person.last"/>
+<br/>
+name: {{person | fullname}}
+    <br/>
+name: {{person | fullname:"- -"}}
+       <br/>
+name: {{person | fullname:" " | uppercase }}
+</div>​
+
+<script>
+function test($scope) {
+
+
+
+}
+
+angular.module("app", []).controller("test", test).
+
+filter("fullname", function() {
+
+    var filterfun = function(person, sep) {
+
+        sep = sep || " ";
+
+        person = person || {};
+
+        person.first = person.first || "";
+
+        person.last = person.last || "";
+
+        return person.first + sep + person.last;
+
+    };
+
+    return filterfun;
+
+});​
+</script>
+</body>
+</html>

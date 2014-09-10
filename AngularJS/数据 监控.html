@@ -10,8 +10,11 @@
 
 <form ng-controller="StartUpController">
   Starting: <input ng-model="funding">
-  Recommendation: {{needed}}
+  Recommendation: {{ needed}}
 </form>
+$watch 监控 var obj 都行
+如果数据量大了 会影响性能 会卡
+
 <script>
   function StartUpController($scope) {
     $scope.funding = "lake"
