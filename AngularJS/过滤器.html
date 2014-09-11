@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="utils">
+<head>
+    <script src="angular-1.0.1.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body ng-controller="lake">
+
+<div>{{ amount | filter1}}</div>  
+
+<script>
+
+var utils = angular.module("no",[]);
+
+
+
+   
+utils.filter('filter1',function(){
+    return function(item){
+        return item + '!';
+    }
+}); 
+
+
+
+
+
+
+</script>
+</body>
+</html>
