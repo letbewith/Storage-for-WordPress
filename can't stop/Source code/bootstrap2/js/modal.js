@@ -1,3 +1,41 @@
+/**  神马设计思想
+ *
+ *
+ *   行间属性
+ *           data-toggle="modal"                使用 modal 模块
+ *           data-target="#id" or  href="#ID"   弹出目标 ID
+ *
+ *
+ *   Launch modal
+ *           自动
+ *           手动 $('#myModal').modal(options)
+ *   options 可以通过data属性或JavaScript代码传递给组件 data-backdrop=""
+        感觉 有用的放这里
+        默认都是 true
+        backdrop  指定static时 点击 遮盖层 不会关闭窗口
+                 false 没有遮盖层效果
+
+        keyboard  按下esc键时关闭模态对话框 用的少
+
+        remote 默认false
+        <a data-toggle="modal" href="a.html" data-target="#myModal">click me</a>
+
+    手动打开一个模态对话框
+    $('#myModal').modal('show') 不要show 也行
+
+    $('#myModal').modal('hide') 藏起来
+
+    Event
+            show hide 立即被触发
+            shown     当模态对话框呈现到用户面前时（会等待过渡效果执行结束）此事件被触发
+
+ $('#myModal').on('hidden', function () {
+    // do something…
+    })
+ 这个没用过
+
+ */
+
 /* =========================================================
  * bootstrap-modal.js v2.3.2
  * http://getbootstrap.com/2.3.2/javascript.html#modals
@@ -16,14 +54,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================= */
-!function ($) {
 
-    "use strict"; // jshint ;_;
+ !function ($) {
 
+    "use strict";
 
-    /* MODAL CLASS DEFINITION
-     * ====================== */
-
+    // 一个 构造函数
     var Modal = function (element, options) {
         this.options = options
         this.$element = $(element)
@@ -224,7 +260,7 @@
     }
 
 
-    /* MODAL DATA-API
+    /* MODAL DATA-API bind Event 这里就 匹配 绑定了符合要求的所有事件
      * ============== */
 
     $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
