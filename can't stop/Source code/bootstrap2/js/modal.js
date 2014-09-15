@@ -247,7 +247,11 @@
 
 
     /* MODAL DATA-API bind Event 这里就 匹配 绑定了符合要求的所有事件
-     * ============== */
+ 
+
+ 	click.modal.data-api 什么意思
+
+ */
 
     $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
         var $this = $(this)
