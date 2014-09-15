@@ -45,12 +45,15 @@
 /**
     在jQuery1.7 + .delegate()已被.on()取代
     这里还用 = =!
+    click.dismiss.modal ??
+
  */
     var Modal = function (element, options) {
         this.options = options
         this.$element = $(element)
             .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
         this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+        //绑定关闭事件，关闭按钮要求有[data-dismiss="modal"]属性
     }
 
     Modal.prototype = {
@@ -250,6 +253,8 @@
  
 
  	click.modal.data-api 什么意思
+
+    <a href="#myModal" role="button" class="btn" data-toggle="modal">弹窗</a>
 
  */
 
