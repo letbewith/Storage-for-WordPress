@@ -16,20 +16,19 @@
             
 ## lake野生项目
 ### 为了全栈山寨湿(酱油技能树)
-![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/github/Full-Stack-Developer.png)
+<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/github/Full-Stack-Developer.png'>
 ### 框架 birdbath 编写 
 birdbath.jpg
-![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/github/birdbath.jpg.jpg)
+<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/github/birdbath.jpg.jpg'>
        目的: 规范 构建 前端项目 不然怎么写 都是不爽
-
 ### javaScript Guide
      学习js我也是醉了 反反复复 看+做笔记 一遍又一遍 
      奈何我金鱼记忆 我决定还是来个终极版本的笔记 
-     https://github.com/letbewith/Comprehend-JavaScript 
+     <a href='https://github.com/letbewith/Comprehend-JavaScript' traget="_blank">Comprehend-JavaScript</a>
      基本完工 后期不定时陆续更新.....
 ### github page
-    http://letbewith.github.io/
-    基于hexo 暂停 我还是等node熟悉了 自己写一个
+    <a href='http://letbewith.github.io/' traget="_blank">基于hexo</a>
+     暂停 我还是等node熟悉了 自己写一个
 ### backbone + angularjs
      深层次领悟
     (比如我的半途而废的播放器 在扩展下) 基于nosejs 单页面 播放器 + 爬虫
