@@ -16,10 +16,10 @@
             
 ## lake野生项目
 ### 为了全栈山寨湿(酱油技能树)
-<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/github/Full-Stack-Developer.png'>
+<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/github/Full-Stack-Developer.png'>
 ### 框架 birdbath 编写 
 birdbath.jpg
-<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/github/birdbath.jpg.jpg'>
+<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/github/birdbath.jpg'>
        目的: 规范 构建 前端项目 不然怎么写 都是不爽
 ### javaScript Guide
      学习js我也是醉了 反反复复 看+做笔记 一遍又一遍 
