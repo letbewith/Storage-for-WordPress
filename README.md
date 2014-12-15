@@ -24,10 +24,10 @@ birdbath.jpg
 ### javaScript Guide
      学习js我也是醉了 反反复复 看+做笔记 一遍又一遍 
      奈何我金鱼记忆 我决定还是来个终极版本的笔记 
-     <a href='https://github.com/letbewith/Comprehend-JavaScript' traget="_blank">Comprehend-JavaScript</a>
+<a href='https://github.com/letbewith/Comprehend-JavaScript' traget="_blank">Comprehend-JavaScript</a>
      基本完工 后期不定时陆续更新.....
 ### github page
-    <a href='http://letbewith.github.io/' traget="_blank">基于hexo</a>
+<a href='http://letbewith.github.io/' traget="_blank">基于hexo</a>
      暂停 我还是等node熟悉了 自己写一个
 ### backbone + angularjs
      深层次领悟
