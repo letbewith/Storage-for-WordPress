@@ -1,6 +1,6 @@
 ![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/acg/fff.jpg "求脱团 求包养")![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/acg/QQ20140817193815.jpg "")
 
-##dropbox已跪 华为盘可代替 暂停提交 整理好了乱七八糟的代码+笔记
+##dropbox已跪 华为盘可代替
 	外链 src  https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/xxx.jpg    
     只存 mp3 img 博客引用(速度不行 = =!)     
 ##get技能 
@@ -33,6 +33,7 @@ birdbath.jpg
      深层次领悟
     (比如我的半途而废的播放器 在扩展下) 基于nosejs 单页面 播放器 + 爬虫
 ### other
+<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/miao5cm.org/Unnamed%20QQ%20Screenshot20141215222650.png'>
     douban    只听fm
     wordpress blog 反正没人造也没人看 随便写了....
 
