@@ -14,9 +14,11 @@
         版本控制 git svn
         熟练前后 分离开发 后台>前台 模块化 api 符合 REST 规范
             
-## lake野生项目
-### 为了全栈山寨湿(酱油技能树)
-<img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/github/Full-Stack-Developer.png'>
+##  lake野生项目
+### 为了全栈山寨湿
+
+    pdf 看完扔进去 book
+
 ### 框架 birdbath 编写 
 birdbath.jpg
 <img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/github/birdbath.jpg'>
