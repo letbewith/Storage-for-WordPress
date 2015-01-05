@@ -17,7 +17,9 @@
 ##  lake野生项目
 ### 为了全栈山寨湿
 
-    pdf 看完扔进去 book
+    pdf 看完扔book里面
+    集中起来比较好找
+    只做备份用
 
 ### 框架 birdbath 编写 
 birdbath.jpg

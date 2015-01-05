@@ -52,6 +52,5 @@ firefox
 :pig:
 :pig_nose:
 :cow:
-:boar:
 :monkey_face:
 
