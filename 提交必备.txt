@@ -25,8 +25,9 @@ JSON.stringify(data)
 2014-12-25 22:13:28 『今天你最后遇见的那个人有在微笑吗？-幸运星』
 2015-1-7 23:30:30『你住的城市下雨了，很想问你有没有带伞。可是我忍住了，因为我怕你说没带，而我又无能为力，就像是我爱你却给不到你想要的陪伴。--宫崎骏』
 2015-1-8 22:19:56『陪伴是最长情的告白』
+2015-1-13 00:42:54『人经历风浪是会变得更强，可是船不同，日积月累的只有伤痛-onePiece』
 『』
-
+喜欢你是一场漫长的失恋
 
 firefox
 <marquee onmouseover="if(document.all!=null){this.stop()}" onmouseout="if(document.all!=null){this.start()}" scrollamount="2" scrolldelay="1" direction="left">
@@ -43,7 +44,7 @@ firefox
 
 
 
-:mouse:
+
 
 
 
