@@ -7,7 +7,7 @@
 
 	外链 src  https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/xxx.jpg    
     只存 mp3 img 博客引用(速度不行 = =!)     
-## 为了全栈山寨湿
+## 全栈山寨湿
         治疗IE   各种不服
         jQuery   bootstrap seajs
         css less 没怎么深入用
