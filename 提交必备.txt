@@ -28,6 +28,10 @@ JSON.stringify(data)
 2015-1-13 00:42:54『人经历风浪是会变得更强，可是船不同，日积月累的只有伤痛-onePiece』
 2015-1-13 21:31:17『喜欢你是一场漫长的失恋』
 2015-1-15 20:07:03『如果能不长大就好了啊 可是时光在身后挡住退路』
+2015-1-16 22:31:28『所以说，那个……等价交换啊！我把我的人生给你一半，你的人生也给我一半吧』
+『』
+
+
 
 夏天，那个夏天，还有那个夏天，即使经历无数次夏天，我还是说不出口。
 
@@ -40,7 +44,7 @@ JSON.stringify(data)
 一个寂寞的人被给予了思念就会显得更寂寞。
 没有什么是完美的，这个世界并不完美，所以才显得美丽。
 
-所以说，那个……等价交换啊！我把我的人生给你一半，你的人生也给我一半吧
+
 
 firefox
 <marquee onmouseover="if(document.all!=null){this.stop()}" onmouseout="if(document.all!=null){this.start()}" scrollamount="2" scrolldelay="1" direction="left">
@@ -50,7 +54,7 @@ firefox
 
 
 
-:koala:
+
 :bear:
 :pig:
 :pig_nose:
