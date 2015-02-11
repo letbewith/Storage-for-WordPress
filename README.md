@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/acg/fff.jpg "求脱团 求包养")![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/acg/QQ20140817193815.jpg "")
+![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/acg/fff.jpg "求脱团 代码陪写 ")![alt text](https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/acg/QQ20140817193815.jpg "")
 
 ## 代码同步
     dropbox已跪 华为盘可代替 = = 也是个坑啊
@@ -33,7 +33,8 @@
 
 ### 框架 birdbath 编写 
 <img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/github/birdbath.jpg'>
-       目的: 规范 构建 前端项目 不然怎么写 都是不爽
+       目的: 前端项目(工具库) 常用 方法 收集起来
+       = = 写来写去 怎么和 _ 差不多
 ### Comprehend-JavaScript
      js我也是醉了    笔记 反反复复  一遍又一遍
      奈何我金鱼记忆  我决定还是来个终极版本的笔记
@@ -45,8 +46,9 @@
 ### backbone + angularjs
      深层领悟
      基于nosejs 单页面 播放器 + 爬虫
-### other
+### other 自娱自乐
 <img src='https://raw.githubusercontent.com/letbewith/Storage-for-WordPress/master/img/miao5cm.org/Unnamed%20QQ%20Screenshot20141215222650.png'>
+
 
 
     
