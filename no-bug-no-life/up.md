@@ -44,7 +44,7 @@ JSON.stringify(data)
 一个寂寞的人被给予了思念就会显得更寂寞。
 没有什么是完美的，这个世界并不完美，所以才显得美丽。
 
-
+大好きだったよ
 
 firefox
 <marquee onmouseover="if(document.all!=null){this.stop()}" onmouseout="if(document.all!=null){this.start()}" scrollamount="2" scrolldelay="1" direction="left">
